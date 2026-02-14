@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +14,54 @@
       <h1>Picture This!</h1>
       <h4>My Really Cool Blog Post</h4>
     </div>
-    <img src="images/museum.jpg" alt="placeholder">
+
+    <!-- I am using the picture element so the browser can choose the correct image
+         depending on the screen size. When the screen is smaller than 960px,
+         a landscape image is displayed. When the screen is 960px or larger,
+         a square image is used and it takes half of the viewport width. -->
+    <picture class="hero-media">
+
+      <!-- Square images for screens 960px and larger -->
+      <source
+        media="(min-width: 960px)"
+        srcset="
+          images/square-480.jpg 480w,
+          images/square-640.jpg 640w,
+          images/square-800.jpg 800w,
+          images/square-960.jpg 960w,
+          images/square-1280.jpg 1280w,
+          images/square-1440.jpg 1440w,
+          images/square-1600.jpg 1600w,
+          images/square-1920.jpg 1920w,
+          images/square-2400.jpg 2400w
+        "
+        sizes="50vw"
+      />
+
+      <!-- Landscape images for screens smaller than 960px -->
+      <source
+        media="(max-width: 959px)"
+        srcset="
+          images/museum-320.jpg 320w,
+          images/museum-480.jpg 480w,
+          images/landscape-640.jpg 640w,
+          images/landscape-720.jpg 720w,
+          images/landscape-960.jpg 960w,
+          images/landscape-1440.jpg 1440w,
+          images/landscape-1920.jpg 1920w,
+          images/landscape-2160.jpg 2160w,
+          images/landscape-2880.jpg 2880w
+        "
+        sizes="100vw"
+      />
+
+      <!-- Fallback image if picture or srcset is not supported -->
+      <img
+        src="images/landscape-960.jpg"
+        alt="Museum gallery room with framed paintings on the walls"
+      />
+    </picture>
 
   </header>
 </body>
-
 </html>

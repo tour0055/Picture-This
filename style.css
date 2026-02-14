@@ -26,15 +26,36 @@ h1 {
 
 h4 {
   font-size: 1.5rem;
+  margin: 10px 0 0;
   font-weight: 300;
 }
 
-img {
+/* This makes sure the image scales properly and stays responsive
+   when the screen size changes */
+.hero-media img {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
+/* For screens 960px and wider, I change the layout so the text
+   is on the left and the image is on the right. The image takes
+   half of the viewport width as required */
 @media (min-width: 960px) {
   .header {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 50px;
+  }
+
+  .hero-media {
+    width: 50vw;
+    justify-self: end;
   }
 }
